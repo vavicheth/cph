@@ -38,13 +38,86 @@ class PatientsController extends Controller
             $patients = Patient::orderBy('id', 'DESC')->where('created_at', '>','2019-06-01' )->get();
         }
 
-        return view('admin.patients.index', compact('patients'));
+        return view('admin.patients.index');
+
+
+//        if (request()->ajax()) {
+//            $query = Patient::query();
+//            $query->with("oranization");
+//            $query->with("invoice");
+//
+//            $template = 'actionsTemplate';
+//
+//            $query->select([
+//                'patients.id',
+//                'patients.name',
+//                'patients.gender',
+//                'patients.age',
+//                'patients.diagnostic',
+//                'patients.contact',
+//                'patients.description',
+//                'patients.creator',
+//                'patients.created_at',
+//                'patients.oranization_id',
+//
+//            ]);
+//            $table = Datatables::of($query);
+//
+//            $table->setRowAttr([
+//                'data-entry-id' => '{{$id}}',
+//            ]);
+//            $table->addColumn('massDelete', '&nbsp;');
+//            $table->addColumn('actions', '&nbsp;');
+//            $table->editColumn('actions', function ($row) use ($template) {
+//                $gateKey  = 'patient_';
+//                $routeKey = 'admin.patients';
+//
+//                return view($template, compact('row', 'gateKey', 'routeKey'));
+//            });
+//            $table->editColumn('oranization.name_kh', function ($row) {
+//                return $row->oranization ? $row->oranization->name_kh : '';
+//            });
+//            $table->editColumn('invoice.created_at', function ($row) {
+//                return $row->invoice ? $row->invoice->created_at : '';
+//            });
+//
+//
+//            $table->rawColumns(['actions','massDelete']);
+//
+//            return $table->make(true);
+//        }
+
+
+
+
+
     }
 
     public function getpatients()
     {
-        $patients=Patient::findOrFail(2013)->orderBy('id', 'DESC')->with('oranization');
-        return Datatables::of($patients)
+        $patients=Patient::orderBy('id', 'DESC')->with('oranization');
+
+//        $patients = Patient::query();
+//        $patients->with("oranization");
+//        $patients->with("invoice");
+
+//        $patients->select([
+//            'patients.id',
+//            'patients.name',
+//            'patients.gender',
+//            'patients.age',
+//            'patients.diagnostic',
+//            'patients.contact',
+//            'patients.description',
+//            'patients.creator',
+//            'patients.created_at',
+//            'patients.oranization_id',
+//        ]);
+
+//        return Datatables::of($patients)
+
+        return $this->Datatables
+            ->eloquent($patients)
             ->addColumn('action', function ($patient) {
                 //view
                 $v='<a href="'.route('admin.patients.show',$patient->id).'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-eye-open"></i>View</a> ';
@@ -73,38 +146,24 @@ class PatientsController extends Controller
                 }
 
             })
-
-//            ->addColumn('date', function ($patient) {
-//                $d=$patient->invoices->first()->value('date');
-//
-//                dd($d);
+            ->addColumn('date', function ($patient) {
+                $d=$patient->invoice->date;
+                return date("Y-m-d", strtotime($d));
+            })
+//            ->editColumn('oranization_id', function ($patient) {
+//                $d=$patient->oranization->name_kh;
 //                return $d;
 //            })
-//            ->filterColumn('date', function ($patient, $keyword) {
-//                $patient->whereRaw("DATE_FORMAT(updated_at,'%Y-%m-%d') like ?", ["%$keyword%"]);
-//            })
+
             ->editColumn('gender', function ($patient) {
                 if($patient->gender == 1){
                     return 'Male';
                 }
-
                 return 'Female';
             })
-            ->filterColumn('created_at', function ($patient, $keyword) {
-                $patient->where("gender", "like", ["%$keyword%"]);
-            })
-
             ->editColumn('creator', function ($patient) {
                 $user_creator=$patient->user_creator->name;
                 return $user_creator;
-            })
-            ->filterColumn('creator', function ($patient, $keyword) {
-                $patient->where("creator", "like", ["%$keyword%"]);
-            })
-            ->addColumn('date', function ($patient) {
-                $d=$patient->invoice->date;
-//                dd($d);
-                return date("Y-m-d", strtotime($d));
             })
             ->make(true);
     }
