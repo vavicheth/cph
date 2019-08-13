@@ -95,7 +95,7 @@ class PatientsController extends Controller
 
     public function getpatients()
     {
-        $patients=Patient::orderBy('id', 'DESC')->with('oranization');
+//        $patients=Patient::orderBy('id', 'DESC')->with('oranization');
 
 //        $patients = Patient::query();
 //        $patients->with("oranization");
@@ -116,15 +116,17 @@ class PatientsController extends Controller
 
 //        return Datatables::of($patients)
 
-        return $this->Datatables
-            ->eloquent($patients)
+        $query = Patient::with('oranization')->select('patients.*');
+
+        return DataTables::of($query)
+
             ->addColumn('action', function ($patient) {
                 //view
                 $v='<a href="'.route('admin.patients.show',$patient->id).'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-eye-open"></i>View</a> ';
                 //edit
                 $e='<a href="'.route('admin.patients.edit',$patient->id).'" class="btn btn-xs btn-info"><i class="glyphicon glyphicon-edit"></i>Edit</a> ';
                 //delete
-                $d='<a href="javascript:;" data-toggle="modal" onclick="deleteData('. $patient->id.')" 
+                $d='<a href="javascript:;" data-toggle="modal" onclick="deleteData('. $patient->id.')"
                     data-target="#DeleteModal" class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-trash"></i>Delete</a>';
 
                 $start=Carbon::parse($patient->created_at);
@@ -146,25 +148,25 @@ class PatientsController extends Controller
                 }
 
             })
-            ->addColumn('date', function ($patient) {
-                $d=$patient->invoice->date;
-                return date("Y-m-d", strtotime($d));
-            })
-//            ->editColumn('oranization_id', function ($patient) {
-//                $d=$patient->oranization->name_kh;
-//                return $d;
+//            ->addColumn('date', function ($patient) {
+//                $d=$patient->invoice->date;
+//                return date("Y-m-d", strtotime($d));
 //            })
-
-            ->editColumn('gender', function ($patient) {
-                if($patient->gender == 1){
-                    return 'Male';
-                }
-                return 'Female';
-            })
-            ->editColumn('creator', function ($patient) {
-                $user_creator=$patient->user_creator->name;
-                return $user_creator;
-            })
+////            ->editColumn('oranization_id', function ($patient) {
+////                $d=$patient->oranization->name_kh;
+////                return $d;
+////            })
+//
+//            ->editColumn('gender', function ($patient) {
+//                if($patient->gender == 1){
+//                    return 'Male';
+//                }
+//                return 'Female';
+//            })
+//            ->editColumn('creator', function ($patient) {
+//                $user_creator=$patient->user_creator->name;
+//                return $user_creator;
+//            })
             ->make(true);
     }
 

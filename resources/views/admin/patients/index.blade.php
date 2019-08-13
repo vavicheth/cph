@@ -111,15 +111,19 @@
                 columns: [
 
                     { data: 'name', name: 'name'},
-                    { data: 'gender'},
+                    { data: 'gender',name:'gender'},
                     { data: 'age', name: 'age', },
                     { data: 'oranization.name_kh', name: 'oranization.name_kh', },
                     { data: 'diagnostic', name: 'diagnostic' },
                     { data: 'creator', name: 'creator' },
+                    { data: 'created_at', name: 'created_at' },
+
+                    // { data: 'oranization.name_kh', name: 'oranization.name_kh', },
+                    // { data: 'diagnostic', name: 'diagnostic' },
+                    // { data: 'creator', name: 'creator' },
+                    // // { data: 'date', name: 'date'},
                     // { data: 'date', name: 'date'},
-                    { data: 'date', name: 'date'},
                     { data: 'action', name: 'action', searchable: false, sortable: false },
-                    // { data: 'invoices.created_at', name: 'invoice_date' }
                 ]
             });
         });
