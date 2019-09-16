@@ -142,7 +142,7 @@ class InvoicesController extends Controller
         $invoicedetails = \App\Invoicedetail::where('invoice_id', $id)->get();
 
         $invoice = Invoice::findOrFail($id);
-        $medicines=Medicine::orderBy('name','ASC')->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
+        $medicines=Medicine::orderBy('name','ASC')->where('active','=',1)->pluck('name', 'id')->prepend(trans('quickadmin.qa_please_select'), '');
 
 
         /**

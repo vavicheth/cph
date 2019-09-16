@@ -76,54 +76,23 @@
 
 @section('javascript')
     <script>
-
-        {{--@can('patient_delete')--}}
-            {{--window.route_mass_crud_entries_destroy = '{{ route('admin.patients.mass_destroy') }}';--}}
-        {{--@endcan--}}
-        {{--$(document).ready(function () {--}}
-            {{--window.dtDefaultOptions.ajax = '{!! route('admin.patients.index') !!}';--}}
-            {{--window.dtDefaultOptions.columns = [@can('patient_delete')--}}
-            {{--{data: 'massDelete', name: 'id', searchable: false, sortable: false},@endcan--}}
-                {{--{data: 'name', name: 'name'},--}}
-                {{--{data: 'gedner', name: 'gender'},--}}
-                {{--{data: 'age', name: 'age'},--}}
-                {{--{data: 'oranization', name: 'oranization'},--}}
-                {{--{data: 'diagnostic', name: 'diagnostic'},--}}
-                {{--{data: 'creator', name: 'creator'},--}}
-                {{--{data: 'invoice.created_at', name: 'invoice.created_at'},--}}
-
-                {{--{data: 'actions', name: 'actions', searchable: false, sortable: false}--}}
-            {{--];--}}
-            {{--processAjaxTables();--}}
-        {{--});--}}
-
-
-
-
         $(function() {
             $('#table-patients').DataTable({
                 processing: true,
                 serverSide: true,
-                // searchable:true,
-                // sortable: true,
-                ajax: '{!! route('admin.get.patients') !!}',
+                ajax: '{!! route('admin.patients.index') !!}',
 
                 columns: [
 
-                    { data: 'name', name: 'name'},
-                    { data: 'gender',name:'gender'},
-                    { data: 'age', name: 'age', },
-                    { data: 'oranization.name_kh', name: 'oranization.name_kh', },
+                    { data: 'name', name: 'name',sortable: true},
+                    { data: 'gender',name:'gender',sortable: true},
+                    { data: 'age', name: 'age' },
+                    { data: 'oranization_id', name: 'oranization_id' },
                     { data: 'diagnostic', name: 'diagnostic' },
                     { data: 'creator', name: 'creator' },
-                    { data: 'created_at', name: 'created_at' },
-
-                    // { data: 'oranization.name_kh', name: 'oranization.name_kh', },
-                    // { data: 'diagnostic', name: 'diagnostic' },
-                    // { data: 'creator', name: 'creator' },
-                    // // { data: 'date', name: 'date'},
-                    // { data: 'date', name: 'date'},
-                    { data: 'action', name: 'action', searchable: false, sortable: false },
+                    { data: 'date', name: 'date'},
+                    { data: 'action', name: 'action' },
+                    // { data: 'invoices.created_at', name: 'invoice_date' }
                 ]
             });
         });

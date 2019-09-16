@@ -65,4 +65,24 @@ class Patient extends Model
     {
         return $this->belongsTo(User::class, 'creator');
     }
+
+//
+//
+//    public function setInvoiceIdAttribute($input)
+//    {
+//        $this->attributes['invoice_id'] = $input ? $input : null;
+//    }
+//
+//    public function invoice()
+//    {
+//        return $this->belongsTo(Invoice::class, 'invoice_id')->withTrashed();
+//    }
+//
+//    public function creator()
+//    {
+//        return $this->belongsTo(User::class, 'creator_id');
+//    }
+
+
+
 }

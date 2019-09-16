@@ -24,70 +24,88 @@ class PatientsController extends Controller
      */
     public function index()
     {
-        if (! Gate::allows('patient_access')) {
-            return abort(401);
-        }
+//        if (! Gate::allows('patient_access')) {
+////            return abort(401);
+////        }
+////        if (request('show_deleted') == 1) {
+////            if (! Gate::allows('patient_delete')) {
+////                return abort(401);
+////            }
+////            $patients = Patient::orderBy('id', 'DESC')->where('created_at', '>','2019-06-01' )->onlyTrashed()->get();
+////        } else {
+////            $patients = Patient::orderBy('id', 'DESC')->where('created_at', '>','2019-06-01' )->get();
+////        }
+////        return view('admin.patients.index', compact('patients'));
 
+//        if (request('show_deleted') == 1) {
+//            if (! Gate::allows('patient_delete')) {
+//                return abort(401);
+//            }
+////            dd('test');
+//            $patient = datatables()->of(Patient::select('*')->orderBy('id', 'DESC')->onlyTrashed());
+//        } else {
+//            $patient = datatables()->of(Patient::select('*')->orderBy('id', 'DESC')->with('oranization','user_creator'));
+//        }
 
-        if (request('show_deleted') == 1) {
-            if (! Gate::allows('patient_delete')) {
-                return abort(401);
-            }
-            $patients = Patient::orderBy('id', 'DESC')->where('created_at', '>','2019-06-01' )->onlyTrashed()->get();
-        } else {
-            $patients = Patient::orderBy('id', 'DESC')->where('created_at', '>','2019-06-01' )->get();
+        if(request()->ajax()) {
+            return datatables()->of(Patient::query()->orderBy('id', 'DESC')->with('oranization','user_creator'))
+                ->addColumn('action', function ($patient) {
+
+                    //view
+                    $v='<a href="'.route('admin.patients.show',$patient->id).'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-eye-open"></i>View</a> ';
+                    //edit
+                    $e='<a href="'.route('admin.patients.edit',$patient->id).'" class="btn btn-xs btn-info"><i class="glyphicon glyphicon-edit"></i>Edit</a> ';
+                    //delete
+                    $d='<a href="javascript:;" data-toggle="modal" onclick="deleteData('. $patient->id.')" 
+                    data-target="#DeleteModal" class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-trash"></i>Delete</a>';
+
+                    $start=Carbon::parse($patient->created_at);
+                    $end=Carbon::now();
+                    $hour = $end->diffInHours($start);
+                    $duration_right=true;
+                    if ($hour > 24){
+                        $duration_right=false;
+                    }
+
+                    if(Auth::user()->role->id == 1 || (Auth::user()->id == $patient->creator && $duration_right==True)){
+                        if (Gate::allows('patient_delete')) {
+                            return $v.$e.$d;
+                        }else{
+                            return $v;
+                        }
+                    }else{
+                        return $v;
+                    }
+
+                })
+                ->editColumn('age', function ($patient) {
+                    return $patient->age ? $patient->age :'';
+                })
+                ->editColumn('gender', function ($patient) {
+                    return $patient->gender == 1 ? 'Male':'Female';
+                })
+                ->filterColumn('gender', function($query, $keyword) {
+                    $query->havingRaw('LOWER(branch_name) LIKE ?', ["%{$keyword}%"]);
+                })
+                ->editColumn('creator', function ($patient) {
+                    $user_creator=$patient->user_creator->name;
+                    return $user_creator ? $user_creator :'';
+                })
+                ->editColumn('oranization_id', function ($patient) {
+                    $name_kh=$patient->oranization->name_kh;
+                    return $name_kh ? $name_kh :'';
+                })
+
+                ->addColumn('date', function ($patient) {
+                    $date_create=$patient->invoice()->value('created_at')->format('Y-m-d');
+                    return $date_create ? $date_create :'';
+                })
+                ->rawColumns(['action'])
+                ->addIndexColumn()
+                ->make(true);
         }
 
         return view('admin.patients.index');
-
-
-//        if (request()->ajax()) {
-//            $query = Patient::query();
-//            $query->with("oranization");
-//            $query->with("invoice");
-//
-//            $template = 'actionsTemplate';
-//
-//            $query->select([
-//                'patients.id',
-//                'patients.name',
-//                'patients.gender',
-//                'patients.age',
-//                'patients.diagnostic',
-//                'patients.contact',
-//                'patients.description',
-//                'patients.creator',
-//                'patients.created_at',
-//                'patients.oranization_id',
-//
-//            ]);
-//            $table = Datatables::of($query);
-//
-//            $table->setRowAttr([
-//                'data-entry-id' => '{{$id}}',
-//            ]);
-//            $table->addColumn('massDelete', '&nbsp;');
-//            $table->addColumn('actions', '&nbsp;');
-//            $table->editColumn('actions', function ($row) use ($template) {
-//                $gateKey  = 'patient_';
-//                $routeKey = 'admin.patients';
-//
-//                return view($template, compact('row', 'gateKey', 'routeKey'));
-//            });
-//            $table->editColumn('oranization.name_kh', function ($row) {
-//                return $row->oranization ? $row->oranization->name_kh : '';
-//            });
-//            $table->editColumn('invoice.created_at', function ($row) {
-//                return $row->invoice ? $row->invoice->created_at : '';
-//            });
-//
-//
-//            $table->rawColumns(['actions','massDelete']);
-//
-//            return $table->make(true);
-//        }
-
-
 
 
 
@@ -95,38 +113,15 @@ class PatientsController extends Controller
 
     public function getpatients()
     {
-//        $patients=Patient::orderBy('id', 'DESC')->with('oranization');
-
-//        $patients = Patient::query();
-//        $patients->with("oranization");
-//        $patients->with("invoice");
-
-//        $patients->select([
-//            'patients.id',
-//            'patients.name',
-//            'patients.gender',
-//            'patients.age',
-//            'patients.diagnostic',
-//            'patients.contact',
-//            'patients.description',
-//            'patients.creator',
-//            'patients.created_at',
-//            'patients.oranization_id',
-//        ]);
-
-//        return Datatables::of($patients)
-
-        $query = Patient::with('oranization')->select('patients.*');
-
-        return DataTables::of($query)
-
+        $patients=Patient::findOrFail(2013)->orderBy('id', 'DESC')->with('oranization');
+        return Datatables::of($patients)
             ->addColumn('action', function ($patient) {
                 //view
                 $v='<a href="'.route('admin.patients.show',$patient->id).'" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-eye-open"></i>View</a> ';
                 //edit
                 $e='<a href="'.route('admin.patients.edit',$patient->id).'" class="btn btn-xs btn-info"><i class="glyphicon glyphicon-edit"></i>Edit</a> ';
                 //delete
-                $d='<a href="javascript:;" data-toggle="modal" onclick="deleteData('. $patient->id.')"
+                $d='<a href="javascript:;" data-toggle="modal" onclick="deleteData('. $patient->id.')" 
                     data-target="#DeleteModal" class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-trash"></i>Delete</a>';
 
                 $start=Carbon::parse($patient->created_at);
@@ -148,25 +143,31 @@ class PatientsController extends Controller
                 }
 
             })
-//            ->addColumn('date', function ($patient) {
-//                $d=$patient->invoice->date;
-//                return date("Y-m-d", strtotime($d));
-//            })
-////            ->editColumn('oranization_id', function ($patient) {
-////                $d=$patient->oranization->name_kh;
-////                return $d;
-////            })
-//
-//            ->editColumn('gender', function ($patient) {
-//                if($patient->gender == 1){
-//                    return 'Male';
-//                }
-//                return 'Female';
-//            })
-//            ->editColumn('creator', function ($patient) {
-//                $user_creator=$patient->user_creator->name;
-//                return $user_creator;
-//            })
+
+            ->editColumn('created_at', function ($patient) {
+                return $patient->updated_at->format('Y-m-d');
+            })
+            ->filterColumn('created_at', function ($patient, $keyword) {
+                $patient->whereRaw("DATE_FORMAT(updated_at,'%Y-%m-%d') like ?", ["%$keyword%"]);
+            })
+            ->editColumn('gender', function ($patient) {
+                if($patient->gender == 1){
+                    return 'Male';
+                }
+
+                return 'Female';
+            })
+            ->filterColumn('created_at', function ($patient, $keyword) {
+                $patient->where("gender", "like", ["%$keyword%"]);
+            })
+
+            ->editColumn('creator', function ($patient) {
+                $user_creator=$patient->user_creator->name;
+                return $user_creator;
+            })
+            ->filterColumn('creator', function ($patient, $keyword) {
+                $patient->where("creator", "like", ["%$keyword%"]);
+            })
             ->make(true);
     }
 
@@ -325,7 +326,9 @@ class PatientsController extends Controller
             return abort(401);
         }
         $patient = Patient::findOrFail($id);
+        $patient->invoices()->delete();
         $patient->delete();
+
 
         return redirect()->route('admin.patients.index');
     }
