@@ -48,7 +48,11 @@ class PatientsController extends Controller
 //        }
 
         if(request()->ajax()) {
-            return datatables()->of(Patient::query()->orderBy('id', 'DESC')->with('oranization','user_creator'))
+//            return DataTables::of(Patient::query()->orderBy('id', 'DESC'))
+            return DataTables::of(Patient::query())
+                ->setRowId(function ($patient){
+                    return $patient->id;
+                })
                 ->addColumn('action', function ($patient) {
 
                     //view
@@ -56,7 +60,7 @@ class PatientsController extends Controller
                     //edit
                     $e='<a href="'.route('admin.patients.edit',$patient->id).'" class="btn btn-xs btn-info"><i class="glyphicon glyphicon-edit"></i>Edit</a> ';
                     //delete
-                    $d='<a href="javascript:;" data-toggle="modal" onclick="deleteData('. $patient->id.')" 
+                    $d='<a href="javascript:;" data-toggle="modal" onclick="deleteData('. $patient->id.')"
                     data-target="#DeleteModal" class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-trash"></i>Delete</a>';
 
                     $start=Carbon::parse($patient->created_at);
@@ -81,28 +85,28 @@ class PatientsController extends Controller
                 ->editColumn('age', function ($patient) {
                     return $patient->age ? $patient->age :'';
                 })
+                ->editColumn('diagnostic', function ($patient) {
+                    return $patient->diagnostic ? $patient->diagnostic :'';
+                })
                 ->editColumn('gender', function ($patient) {
                     return $patient->gender == 1 ? 'Male':'Female';
                 })
-                ->filterColumn('gender', function($query, $keyword) {
-                    $query->havingRaw('LOWER(branch_name) LIKE ?', ["%{$keyword}%"]);
+//                ->filterColumn('gender', function($query, $keyword) {
+//                    return $query->whereRaw("gender) like ?", ["%{$keyword}%"]);
+//                })
+                ->addColumn('organization', function (Patient $patient){
+                    return $patient->oranization->name_kh;
                 })
-                ->editColumn('creator', function ($patient) {
-                    $user_creator=$patient->user_creator->name;
-                    return $user_creator ? $user_creator :'';
+                ->addColumn('creator', function (Patient $patient){
+                    return $patient->user_creator->name;
                 })
-                ->editColumn('oranization_id', function ($patient) {
-                    $name_kh=$patient->oranization->name_kh;
-                    return $name_kh ? $name_kh :'';
+                ->addColumn('date', function (Patient $patient){
+                    return $patient->invoice->created_at->format('Y-m-d');
                 })
 
-                ->addColumn('date', function ($patient) {
-                    $date_create=$patient->invoice()->value('created_at')->format('Y-m-d');
-                    return $date_create ? $date_create :'';
-                })
-                ->rawColumns(['action'])
-                ->addIndexColumn()
                 ->make(true);
+
+
         }
 
         return view('admin.patients.index');

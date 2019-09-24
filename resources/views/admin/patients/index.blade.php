@@ -77,23 +77,27 @@
 @section('javascript')
     <script>
         $(function() {
+
             $('#table-patients').DataTable({
                 processing: true,
                 serverSide: true,
+                searchable:true,
                 ajax: '{!! route('admin.patients.index') !!}',
 
                 columns: [
 
-                    { data: 'name', name: 'name',sortable: true},
-                    { data: 'gender',name:'gender',sortable: true},
+
+                    { data: 'name', name: 'name',},
+                    { data: 'gender',name:'gender'},
                     { data: 'age', name: 'age' },
-                    { data: 'oranization_id', name: 'oranization_id' },
+                    { data: 'organization', name: 'organization' },
                     { data: 'diagnostic', name: 'diagnostic' },
-                    { data: 'creator', name: 'creator' },
+                    { data: 'creator', name: 'creator' ,searchable: true},
                     { data: 'date', name: 'date'},
                     { data: 'action', name: 'action' },
                     // { data: 'invoices.created_at', name: 'invoice_date' }
-                ]
+                ],
+                order:[6,'desc']
             });
         });
 
