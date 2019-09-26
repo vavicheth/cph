@@ -49,7 +49,19 @@ class PatientsController extends Controller
 
         if(request()->ajax()) {
 //            return DataTables::of(Patient::query()->orderBy('id', 'DESC'))
-            $patients=Patient::with('oranization','user_creator')->select('patients.*');
+            $patients=Patient::join('organizations','patients.oranization_id','=', 'organizations.id')
+                ->join('users','patients.creator','=', 'users.id')
+                ->join('invoices','patients.id','=', 'invoices.patient_id')
+                ->select([
+                    'patients.id as id',
+                    'patients.name as name',
+                    'patients.gender as gender',
+                    'patients.age as age',
+                    'patients.diagnostic as diagnostic',
+                    'organizations.name_kh as organization',
+                    'users.name as creator',
+                    'invoices.created_at as date'
+                ]);
             return DataTables::of($patients)
 //            return DataTables::of(Patient::query())
                 ->setRowId(function ($patient){
@@ -93,6 +105,22 @@ class PatientsController extends Controller
                 ->editColumn('gender', function ($patient) {
                     return $patient->gender == 1 ? 'Male':'Female';
                 })
+                ->filterColumn('gender', function ($query, $keyword) {
+                    $query->whereRaw("patients.gender like ?", ["%$keyword%"]);
+                })
+                ->filterColumn('organization', function ($query, $keyword) {
+                    $query->whereRaw("organizations.name_kh like ?", ["%$keyword%"]);
+                })
+                ->filterColumn('creator', function ($query, $keyword) {
+                    $query->whereRaw("users.name like ?", ["%$keyword%"]);
+                })
+                ->editColumn('date', function ($patient){
+                    return $patient->invoice->created_at->format('Y-m-d');
+                })
+                ->filterColumn('date', function ($query, $keyword) {
+                    $query->whereRaw("DATE_FORMAT(invoices.created_at,'%Y-%m-%d') like ?", ["%$keyword%"]);
+                })
+
 
 //                ->filterColumn('gender', function($query, $keyword) {
 //                    return $query->whereRaw("gender) like ?", ["%{$keyword}%"]);
@@ -103,15 +131,15 @@ class PatientsController extends Controller
 //                ->addColumn('creator', function (Patient $patient){
 //                    return $patient->user_creator->name;
 //                })
-                ->addColumn('date', function ($patient){
-                    return $patient->invoice->created_at->format('Y-m-d');
-                })
-                ->filterColumn('date', function ($query, $keyword) {
-                    $query->whereRaw("DATE_FORMAT(date,'%Y-%m-%d') like ?", ["%$keyword%"]);
-                })
-//                ->filterColumn('oranization.name_kh', function ($query, $keyword) {
-//                    $query->whereRaw("oranization.name_kh like ?", ["%$keyword%"]);
+//                ->addColumn('date', function ($patient){
+//                    return $patient->invoice->created_at->format('Y-m-d');
 //                })
+//                ->filterColumn('date', function ($query, $keyword) {
+//                    $query->whereRaw("DATE_FORMAT(date,'%Y-%m-%d') like ?", ["%$keyword%"]);
+//                })
+////                ->filterColumn('oranization.name_kh', function ($query, $keyword) {
+////                    $query->whereRaw("oranization.name_kh like ?", ["%$keyword%"]);
+////                })
 //                ->filterColumn('user_creator.name', function ($query, $keyword) {
 //                    $query->whereRaw("user_creator.name like ?", ["%$keyword%"]);
 //                })
