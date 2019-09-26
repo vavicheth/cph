@@ -90,9 +90,9 @@
                     { data: 'name', name: 'name',},
                     { data: 'gender',name:'gender'},
                     { data: 'age', name: 'age' },
-                    { data: 'organization', name: 'organization' },
+                    { data: 'oranization.name_kh', name: 'oranization.name_kh',"defaultContent": "គ្មាន","targets": "_all"},
                     { data: 'diagnostic', name: 'diagnostic' },
-                    { data: 'creator', name: 'creator' ,searchable: true},
+                    { data: 'user_creator.name', name: 'user_creator.name',"defaultContent": "គ្មាន","targets": "_all" },
                     { data: 'date', name: 'date'},
                     { data: 'action', name: 'action' },
                     // { data: 'invoices.created_at', name: 'invoice_date' }

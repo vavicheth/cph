@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bdd46b63-fe5b-4440-b1d9-a602d578e1db" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/PatientsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PatientsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/patients/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/patients/index.blade.php" afterDir="false" />
     </list>
@@ -19,8 +20,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/PatientsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="102" column="64" lean-forward="true" selection-start-line="102" selection-start-column="64" selection-end-line="102" selection-end-column="64" />
+            <state relative-caret-position="458">
+              <caret line="110" column="18" lean-forward="true" selection-start-line="110" selection-start-column="18" selection-end-line="110" selection-end-column="18" />
               <folding>
                 <element signature="e#46#65#0#PHP" expanded="true" />
               </folding>
@@ -31,8 +32,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Patient.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="63" column="32" selection-start-line="63" selection-start-column="20" selection-end-line="63" selection-end-column="32" />
+            <state relative-caret-position="765">
+              <caret line="46" column="31" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -40,8 +41,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/admin/patients/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="526">
-              <caret line="99" column="24" selection-start-line="99" selection-start-column="24" selection-end-line="99" selection-end-column="24" />
+            <state relative-caret-position="509">
+              <caret line="94" column="46" selection-start-line="94" selection-start-column="29" selection-end-line="94" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -408,12 +409,14 @@
       <workItem from="1567598031128" duration="5803000" />
       <workItem from="1567690703855" duration="6923000" />
       <workItem from="1567949622793" duration="4038000" />
-      <workItem from="1569306510364" duration="17429000" />
+      <workItem from="1569306510364" duration="18138000" />
+      <workItem from="1569418739880" duration="4968000" />
+      <workItem from="1569508595964" duration="1026000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="371727000" />
+    <option name="totallyTimeSpent" value="378430000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -428,7 +431,7 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18496802" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18923241" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -767,9 +770,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_01_221231_add_default_to_extends.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -784,24 +784,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/Patient.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="63" column="32" selection-start-line="63" selection-start-column="20" selection-end-line="63" selection-end-column="32" />
+        <state relative-caret-position="765">
+          <caret line="46" column="31" selection-start-line="46" selection-start-column="20" selection-end-line="46" selection-end-column="31" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/patients/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="99" column="24" selection-start-line="99" selection-start-column="24" selection-end-line="99" selection-end-column="24" />
+        <state relative-caret-position="509">
+          <caret line="94" column="46" selection-start-line="94" selection-start-column="29" selection-end-line="94" selection-end-column="46" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/PatientsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="102" column="64" lean-forward="true" selection-start-line="102" selection-start-column="64" selection-end-line="102" selection-end-column="64" />
+        <state relative-caret-position="458">
+          <caret line="110" column="18" lean-forward="true" selection-start-line="110" selection-start-column="18" selection-end-line="110" selection-end-column="18" />
           <folding>
             <element signature="e#46#65#0#PHP" expanded="true" />
           </folding>

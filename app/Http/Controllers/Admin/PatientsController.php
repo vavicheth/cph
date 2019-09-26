@@ -49,7 +49,9 @@ class PatientsController extends Controller
 
         if(request()->ajax()) {
 //            return DataTables::of(Patient::query()->orderBy('id', 'DESC'))
-            return DataTables::of(Patient::query())
+            $patients=Patient::with('oranization','user_creator')->select('patients.*');
+            return DataTables::of($patients)
+//            return DataTables::of(Patient::query())
                 ->setRowId(function ($patient){
                     return $patient->id;
                 })
@@ -91,18 +93,29 @@ class PatientsController extends Controller
                 ->editColumn('gender', function ($patient) {
                     return $patient->gender == 1 ? 'Male':'Female';
                 })
+
 //                ->filterColumn('gender', function($query, $keyword) {
 //                    return $query->whereRaw("gender) like ?", ["%{$keyword}%"]);
 //                })
-                ->addColumn('organization', function (Patient $patient){
-                    return $patient->oranization->name_kh;
-                })
-                ->addColumn('creator', function (Patient $patient){
-                    return $patient->user_creator->name;
-                })
-                ->addColumn('date', function (Patient $patient){
+//                ->addColumn('organization', function (Patient $patient){
+//                    return $patient->oranization->name_kh;
+//                })
+//                ->addColumn('creator', function (Patient $patient){
+//                    return $patient->user_creator->name;
+//                })
+                ->addColumn('date', function ($patient){
                     return $patient->invoice->created_at->format('Y-m-d');
                 })
+                ->filterColumn('date', function ($query, $keyword) {
+                    $query->whereRaw("DATE_FORMAT(date,'%Y-%m-%d') like ?", ["%$keyword%"]);
+                })
+//                ->filterColumn('oranization.name_kh', function ($query, $keyword) {
+//                    $query->whereRaw("oranization.name_kh like ?", ["%$keyword%"]);
+//                })
+//                ->filterColumn('user_creator.name', function ($query, $keyword) {
+//                    $query->whereRaw("user_creator.name like ?", ["%$keyword%"]);
+//                })
+
 
                 ->make(true);
 
