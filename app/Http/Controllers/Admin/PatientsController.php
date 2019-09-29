@@ -24,9 +24,9 @@ class PatientsController extends Controller
      */
     public function index()
     {
-//        if (! Gate::allows('patient_access')) {
-////            return abort(401);
-////        }
+        if (! Gate::allows('patient_access')) {
+            return abort(401);
+        }
 ////        if (request('show_deleted') == 1) {
 ////            if (! Gate::allows('patient_delete')) {
 ////                return abort(401);
@@ -48,7 +48,6 @@ class PatientsController extends Controller
 //        }
 
         if(request()->ajax()) {
-//            return DataTables::of(Patient::query()->orderBy('id', 'DESC'))
             $patients=Patient::join('organizations','patients.oranization_id','=', 'organizations.id')
                 ->join('users','patients.creator','=', 'users.id')
                 ->join('invoices','patients.id','=', 'invoices.patient_id')
@@ -62,6 +61,7 @@ class PatientsController extends Controller
                     'users.name as creator',
                     'invoices.created_at as date'
                 ]);
+
             return DataTables::of($patients)
 //            return DataTables::of(Patient::query())
                 ->setRowId(function ($patient){
@@ -105,9 +105,12 @@ class PatientsController extends Controller
                 ->editColumn('gender', function ($patient) {
                     return $patient->gender == 1 ? 'Male':'Female';
                 })
-                ->filterColumn('gender', function ($query, $keyword) {
-                    $query->whereRaw("patients.gender like ?", ["%$keyword%"]);
+                ->filterColumn('gender', function($query, $keyword) {
+                    $query->whereRaw("IF(gender = 1, 'Male', 'Female') like ?", ["%{$keyword}%"]);
                 })
+//                ->filterColumn('gender', function ($query, $keyword) {
+//                    $query->whereRaw("patients.gender like ?", ["%$keyword%"]);
+//                })
                 ->filterColumn('organization', function ($query, $keyword) {
                     $query->whereRaw("organizations.name_kh like ?", ["%$keyword%"]);
                 })
@@ -121,38 +124,11 @@ class PatientsController extends Controller
                     $query->whereRaw("DATE_FORMAT(invoices.created_at,'%Y-%m-%d') like ?", ["%$keyword%"]);
                 })
 
-
-//                ->filterColumn('gender', function($query, $keyword) {
-//                    return $query->whereRaw("gender) like ?", ["%{$keyword}%"]);
-//                })
-//                ->addColumn('organization', function (Patient $patient){
-//                    return $patient->oranization->name_kh;
-//                })
-//                ->addColumn('creator', function (Patient $patient){
-//                    return $patient->user_creator->name;
-//                })
-//                ->addColumn('date', function ($patient){
-//                    return $patient->invoice->created_at->format('Y-m-d');
-//                })
-//                ->filterColumn('date', function ($query, $keyword) {
-//                    $query->whereRaw("DATE_FORMAT(date,'%Y-%m-%d') like ?", ["%$keyword%"]);
-//                })
-////                ->filterColumn('oranization.name_kh', function ($query, $keyword) {
-////                    $query->whereRaw("oranization.name_kh like ?", ["%$keyword%"]);
-////                })
-//                ->filterColumn('user_creator.name', function ($query, $keyword) {
-//                    $query->whereRaw("user_creator.name like ?", ["%$keyword%"]);
-//                })
-
-
                 ->make(true);
 
 
         }
-
         return view('admin.patients.index');
-
-
 
     }
 
@@ -427,6 +403,7 @@ class PatientsController extends Controller
             return abort(401);
         }
         $patient = Patient::onlyTrashed()->findOrFail($id);
+        $patient->invoices()->forceDelete();
         $patient->forceDelete();
 
         return redirect()->route('admin.patients.index');

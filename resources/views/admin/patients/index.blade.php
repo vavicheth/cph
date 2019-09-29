@@ -93,7 +93,7 @@
                     { data: 'organization', name: 'organization',"defaultContent": "គ្មាន","targets": "_all",searchable: true},
                     { data: 'diagnostic', name: 'diagnostic' },
                     { data: 'creator', name: 'creator',"defaultContent": "គ្មាន","targets": "_all" },
-                    { data: 'date', name: 'date'},
+                    { data: 'date', name: 'date',"defaultContent": "គ្មាន","targets": "_all" },
                     { data: 'action', name: 'action' },
                     // { data: 'invoices.created_at', name: 'invoice_date' }
                 ],
