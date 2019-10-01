@@ -2,6 +2,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class Invoicedetail
@@ -16,8 +17,12 @@ use Illuminate\Database\Eloquent\Model;
 */
 class Invoicedetail extends Model
 {
+    use SoftDeletes;
+
+
     protected $fillable = ['type', 'qty', 'unit_price', 'total', 'invoice_id', 'medicine_id','extend_id','org_price','exchange_id'];
     protected $hidden = [];
+//    protected $dates = ['deleted_at'];
     
     
 

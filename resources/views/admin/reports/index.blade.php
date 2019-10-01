@@ -334,6 +334,72 @@
     </div>
     <!-- /.box -->
 
+    <!-- Report By Department and Patient -->
+    <div class="box box-danger">
+        <div class="box-header with-border">
+            <h3 class="box-title">Report by Minimum and Maximum invoice</h3>
+
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+            </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+            {!! Form::open(['method' => 'POST', 'route' => ['admin.reports.department_patient']]) !!}
+            <div class="row">
+                <div class="col-xs-6 form-group">
+                    {!! Form::label('fromdate', 'From Date'.'*', ['class' => 'control-label']) !!}
+                    {!! Form::text('fromdate', old('fromdate'), ['class' => 'form-control fromdate', 'placeholder' => '', 'required' => '']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('fromdate'))
+                        <p class="help-block">
+                            {{ $errors->first('fromdate') }}
+                        </p>
+                    @endif
+                </div>
+
+                <div class="col-xs-6 form-group">
+                    {!! Form::label('todate', 'To Date'.'*', ['class' => 'control-label']) !!}
+                    {!! Form::text('todate', old('todate'), ['class' => 'form-control todate', 'placeholder' => '', 'required' => '']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('todate'))
+                        <p class="help-block">
+                            {{ $errors->first('todate') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    {!! Form::label('department', 'Department'.'', ['class' => 'control-label']) !!}
+                    {!! Form::select('department', $departments, old('department'), ['class' => 'form-control select2', 'required' => '']) !!}
+                    <p class="help-block"></p>
+                    @if($errors->has('department'))
+                        <p class="help-block">
+                            {{ $errors->first('department') }}
+                        </p>
+                    @endif
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-3 form-group">
+                    {!! Form::submit('View', ['class' => 'btn btn-danger']) !!}
+                    {!! Form::close() !!}
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer no-padding">
+
+        </div>
+        <!-- /.footer -->
+    </div>
+    <!-- /.box -->
+
 
 
 @stop

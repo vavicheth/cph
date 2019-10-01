@@ -11,14 +11,14 @@
     @endcan
 
     @can('patient_delete')
-        @if(\Illuminate\Support\Facades\Auth::user()->role->id == 1)
+{{--        @if(\Illuminate\Support\Facades\Auth::user()->role->id == 1)--}}
             <p>
             <ul class="list-inline">
                 <li><a href="{{ route('admin.patients.index') }}" style="{{ request('show_deleted') == 1 ? '' : 'font-weight: 700' }}">@lang('quickadmin.qa_all')</a></li> |
                 <li><a href="{{ route('admin.patients.index') }}?show_deleted=1" style="{{ request('show_deleted') == 1 ? 'font-weight: 700' : '' }}">@lang('quickadmin.qa_trash')</a></li>
             </ul>
             </p>
-        @endif
+{{--        @endif--}}
     @endcan
 
 
@@ -69,6 +69,57 @@
                 </div>
             </div>
 
+            <!-- Modal Delete Permanent-->
+            <div class="modal fade" id="DeleteModalPerma" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <form action="" id="deleteFormPerma" method="post">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Delete Patient</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                {{ csrf_field() }}
+                                {{ method_field('DELETE') }}
+                                Are you sure delete this Patient?
+                                You won't be able to revert this!
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-danger" onclick="formSubmitPerma()"><i class="fa fa-trash"></i> Delete</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Modal Restore-->
+            <div class="modal fade" id="RestoreModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <form action="" id="restoreForm" method="post">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Restore Patient</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                {{ csrf_field() }}
+                                {{ method_field('POST') }}
+                                Are you sure restore this Patient?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-success" onclick="formSubmit()"><i class="fa fa-backward"></i> Restore</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
 
         </div>
     </div>
@@ -76,13 +127,16 @@
 
 @section('javascript')
     <script>
+        @can('patient_delete')
+                @if ( request('show_deleted') != 1 ) window.route_mass_crud_entries_destroy = '{{ route('admin.patients.mass_destroy') }}'; @endif
+        @endcan
         $(function() {
 
             $('#table-patients').DataTable({
                 processing: true,
                 serverSide: true,
                 searchable:true,
-                ajax: '{!! route('admin.patients.index') !!}',
+                ajax: '{!! route('admin.patients.index') !!}?show_deleted={{ request('show_deleted') }}',
 
                 columns: [
 
@@ -92,7 +146,7 @@
                     { data: 'age', name: 'age' },
                     { data: 'organization', name: 'organization',"defaultContent": "គ្មាន","targets": "_all",searchable: true},
                     { data: 'diagnostic', name: 'diagnostic' },
-                    { data: 'creator', name: 'creator',"defaultContent": "គ្មាន","targets": "_all" },
+                    { data: 'usercreator', name: 'usercreator',"defaultContent": "គ្មាន","targets": "_all" },
                     { data: 'date', name: 'date',"defaultContent": "គ្មាន","targets": "_all" },
                     { data: 'action', name: 'action' },
                     // { data: 'invoices.created_at', name: 'invoice_date' }
@@ -109,11 +163,36 @@
             url = url.replace(':id', id);
             $("#deleteForm").attr('action', url);
         }
-
         function formSubmit()
         {
             $("#deleteForm").submit();
         }
+
+
+        function deleteDataPerma(id)
+        {
+            var id = id;
+            var url = '{{ route("admin.patients.perma_del", ":id") }}';
+            url = url.replace(':id', id);
+            $("#deleteFormPerma").attr('action', url);
+        }
+        function formSubmitPerma()
+        {
+            $("#deleteFormPerma").submit();
+        }
+
+        function restoreData(id)
+        {
+            var id = id;
+            var url = '{{ route("admin.patients.restore", ":id") }}';
+            url = url.replace(':id', id);
+            $("#restoreForm").attr('action', url);
+        }
+        function formSubmitrestore()
+        {
+            $("#restoreForm").submit();
+        }
+
 
     </script>
 @endsection

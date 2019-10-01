@@ -73,6 +73,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::post('reports/department',['uses'=>'Admin\ReportsController@department', 'as'=>'reports.department']);
     Route::post('reports/max_min',['uses'=>'Admin\ReportsController@max_min', 'as'=>'reports.max_min']);
     Route::post('reports/medicine_history',['uses'=>'Admin\ReportsController@medicine_history', 'as'=>'reports.medicine_history']);
+    Route::post('reports/department_patient',['uses'=>'Admin\ReportsController@department_patient', 'as'=>'reports.department_patient']);
 
     Route::get('getpatients','Admin\PatientsController@getpatients')->name('get.patients');
 

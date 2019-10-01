@@ -18,7 +18,8 @@ class ReportsController extends Controller
 
         $invstates=Invstate::orderBy('state','ASC')->pluck('state', 'id');
         $medicines=Medicine::where('active','=','1')->orderBy('name','ASC')->pluck('name', 'id');
-        return view('admin.reports.index',compact('invstates','medicines'));
+        $departments=Department::where('active','=','1')->orderBy('name','ASC')->pluck('name', 'id');
+        return view('admin.reports.index',compact('invstates','medicines','departments'));
     }
 
 
@@ -59,8 +60,6 @@ class ReportsController extends Controller
 
     public function max_min(Request $request){
 
-//        dd($request->all());
-
         $fromdate= date('Y-m-d',strtotime($request->fromdate));
         $todate=date('Y-m-d',strtotime($request->todate));
         $invstates=$request->invstate;
@@ -97,6 +96,22 @@ class ReportsController extends Controller
 
 
         return view('admin.reports.medicine_history', compact('invoicedetails','fromdate','todate','medicine'));
+    }
+
+    public function department_patient(Request $request){
+
+        $fromdate= date('Y-m-d',strtotime($request->fromdate));
+        $todate=date('Y-m-d',strtotime($request->todate));
+        $department=$request->department;
+        if ($department==null){
+            $department=Department::pluck('id');
+        }
+        $departmentname=Department::findOrFail($department)->name;
+
+        $invoices=Invoice::whereBetween('date',[$fromdate,$todate])->where('department_id',$department)->get();
+
+
+        return view('admin.reports.department_patient', compact('invoices','fromdate','todate','department','departmentname'));
     }
 
 }
