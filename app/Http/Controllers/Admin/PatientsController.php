@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Department;
 use App\Invoice;
+use App\Invoicedetail;
 use App\Invstate;
 use App\Patient;
 use Carbon\Carbon;
@@ -84,7 +85,6 @@ class PatientsController extends Controller
 //        }
 
 
-
         if (request()->ajax()) {
             $patients = Patient::
             join('organizations', 'patients.oranization_id', '=', 'organizations.id')
@@ -126,7 +126,7 @@ class PatientsController extends Controller
                     $dp = '<a href="javascript:;" data-toggle="modal" onclick="deleteDataPerma(' . $patient->id . ')"
                     data-target="#DeleteModalPerma" class="btn btn-xs btn-danger"><i class="glyphicon glyphicon-trash"></i> Delete Permanent</a>';
                     //restore
-                    $r='<a href="javascript:;" data-toggle="modal" onclick="restoreData(' . $patient->id . ')"
+                    $r = '<a href="javascript:;" data-toggle="modal" onclick="restoreData(' . $patient->id . ')"
                     data-target="#RestoreModal" class="btn btn-xs btn-success"><i class="glyphicon glyphicon-backward"></i> Restore</a>';
 
 
@@ -142,16 +142,16 @@ class PatientsController extends Controller
                     if (Auth::user()->role->id == 1 || (Auth::user()->id == $patient->creator && $duration_right == True)) {
 
                         if (Gate::allows('patient_delete')) {
-                            if(request('show_deleted') == 1){
-                                return $r.' '.$dp;
-                            }else{
-                                return  $v . $e . $d;
+                            if (request('show_deleted') == 1) {
+                                return $r . ' ' . $dp;
+                            } else {
+                                return $v . $e . $d;
                             }
 
                         } else {
                             return $v;
                         }
-                    } else{
+                    } else {
                         return $v;
                     }
 
@@ -187,7 +187,6 @@ class PatientsController extends Controller
         return view('admin.patients.index');
 
     }
-
 
 
     /**
@@ -345,9 +344,12 @@ class PatientsController extends Controller
             return abort(401);
         }
         $patient = Patient::findOrFail($id);
-        $invoices=$patient->invoices;
-        foreach ($invoices as $invoice){
-            $invoice->delete();
+        $invoices = $patient->invoices;
+        foreach ($invoices as $invoice) {
+            $invoicedetails = Invoicedetail::where('invoice_id', '=', $invoice->id)->get();
+            foreach ($invoicedetails as $invoicedetail) {
+                $invoicedetail->delete();
+            }
         }
         $patient->invoices()->delete();
         $patient->delete();
@@ -388,11 +390,15 @@ class PatientsController extends Controller
             return abort(401);
         }
         $patient = Patient::onlyTrashed()->findOrFail($id);
-        $invoices=$patient->invoices;
-        foreach ($invoices as $invoice){
-            $invoice->invoicedetail()->restore();
-        }
+        $invoices = $patient->invoices;
+        foreach ($invoices as $invoice) {
+            $invoicedetails = Invoicedetail::where('invoice_id', '=', $invoice->id)->get();
+            dd($invoicedetails);
 
+            foreach ($invoicedetails as $invoicedetail) {
+                $invoicedetail->withTrashed()->restore();
+            }
+        }
         $patient->invoices()->restore();
         $patient->restore();
 
@@ -411,9 +417,12 @@ class PatientsController extends Controller
             return abort(401);
         }
         $patient = Patient::onlyTrashed()->findOrFail($id);
-        $invoices=$patient->invoices;
-        foreach ($invoices as $invoice){
-            $invoice->invoicedetail()->forceDelete();
+        $invoices = $patient->invoices;
+        foreach ($invoices as $invoice) {
+            $invoicedetails = Invoicedetail::where('invoice_id', '=', $invoice->id)->get();
+            foreach ($invoicedetails as $invoicedetail) {
+                $invoicedetail->forceDelete();
+            }
         }
         $patient->invoices()->forceDelete();
         $patient->forceDelete();

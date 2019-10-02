@@ -20,7 +20,7 @@ class Invoicedetail extends Model
     use SoftDeletes;
 
 
-    protected $fillable = ['type', 'qty', 'unit_price', 'total', 'invoice_id', 'medicine_id','extend_id','org_price','exchange_id'];
+    protected $fillable = ['type', 'qty', 'unit_price', 'total', 'invoice_id', 'medicine_id','extend_id','org_price','exchange_id','deleted_at'];
     protected $hidden = [];
 //    protected $dates = ['deleted_at'];
     

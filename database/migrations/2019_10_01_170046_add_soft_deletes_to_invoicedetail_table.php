@@ -15,6 +15,7 @@ class AddSoftDeletesToInvoicedetailTable extends Migration
     {
         Schema::table('invoicedetails', function (Blueprint $table) {
             $table->softDeletes();
+            $table->index(['deleted_at']);
         });
     }
 
