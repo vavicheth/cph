@@ -3,10 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="bdd46b63-fe5b-4440-b1d9-a602d578e1db" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/InvoicedetailsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/InvoicedetailsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/PatientsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/PatientsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Invoicedetail.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Invoicedetail.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_10_01_170046_add_soft_deletes_to_invoicedetail_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_10_01_170046_add_soft_deletes_to_invoicedetail_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/invoicedetails/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/invoicedetails/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/sidebar.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/autoload.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/autoload.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/ClassLoader.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/LICENSE" afterDir="false" />
@@ -17,6 +18,220 @@
       <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_real.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_real.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/autoload_static.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/autoload_static.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vendor/composer/installed.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/composer/installed.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/.php_cs" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/.php_cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/.phpstorm.meta.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/.phpstorm.meta.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/.scrutinizer.yml" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/.scrutinizer.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/.travis.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/CHANGELOG.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/CONTRIBUTING.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/CONTRIBUTING.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docker/php56/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docker/php56/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/conf.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/cookbook/big_parent_class.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/cookbook/big_parent_class.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/cookbook/class_constants.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/cookbook/class_constants.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/cookbook/default_expectations.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/cookbook/default_expectations.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/cookbook/detecting_mock_objects.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/cookbook/detecting_mock_objects.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/cookbook/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/cookbook/index.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/cookbook/map.rst.inc" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/cookbook/map.rst.inc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/cookbook/mockery_on.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/cookbook/mockery_on.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/cookbook/mocking_hard_dependencies.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/cookbook/mocking_hard_dependencies.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/cookbook/not_calling_the_constructor.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/cookbook/not_calling_the_constructor.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/getting_started/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/getting_started/index.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/getting_started/installation.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/getting_started/installation.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/getting_started/map.rst.inc" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/getting_started/map.rst.inc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/getting_started/quick_reference.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/getting_started/quick_reference.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/getting_started/simple_example.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/getting_started/simple_example.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/getting_started/upgrading.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/getting_started/upgrading.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/index.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/mockery/configuration.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/mockery/configuration.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/mockery/exceptions.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/mockery/exceptions.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/mockery/gotchas.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/mockery/gotchas.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/mockery/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/mockery/index.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/mockery/map.rst.inc" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/mockery/map.rst.inc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/mockery/reserved_method_names.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/mockery/reserved_method_names.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/reference/alternative_should_receive_syntax.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/reference/alternative_should_receive_syntax.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/reference/argument_validation.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/reference/argument_validation.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/reference/creating_test_doubles.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/reference/creating_test_doubles.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/reference/demeter_chains.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/reference/demeter_chains.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/reference/expectations.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/reference/expectations.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/reference/final_methods_classes.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/reference/final_methods_classes.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/reference/index.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/reference/index.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/reference/instance_mocking.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/reference/instance_mocking.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/reference/magic_methods.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/reference/magic_methods.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/reference/map.rst.inc" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/reference/map.rst.inc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/reference/partial_mocks.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/reference/partial_mocks.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/reference/pass_by_reference_behaviours.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/reference/pass_by_reference_behaviours.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/reference/phpunit_integration.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/reference/phpunit_integration.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/reference/protected_methods.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/reference/protected_methods.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/reference/public_properties.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/reference/public_properties.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/reference/public_static_properties.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/reference/public_static_properties.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/docs/reference/spies.rst" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/docs/reference/spies.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Adapter/Phpunit/Legacy/TestListenerForV5.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Adapter/Phpunit/Legacy/TestListenerForV5.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Adapter/Phpunit/Legacy/TestListenerForV6.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Adapter/Phpunit/Legacy/TestListenerForV6.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Adapter/Phpunit/Legacy/TestListenerForV7.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Adapter/Phpunit/Legacy/TestListenerForV7.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Adapter/Phpunit/Legacy/TestListenerTrait.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Adapter/Phpunit/Legacy/TestListenerTrait.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryPHPUnitIntegration.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryPHPUnitIntegration.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryPHPUnitIntegrationAssertPostConditionsForV7AndPrevious.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryPHPUnitIntegrationAssertPostConditionsForV7AndPrevious.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryPHPUnitIntegrationAssertPostConditionsForV8.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryPHPUnitIntegrationAssertPostConditionsForV8.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryTestCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryTestCase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryTestCaseSetUpForV7AndPrevious.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryTestCaseSetUpForV7AndPrevious.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryTestCaseSetUpForV8.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Adapter/Phpunit/MockeryTestCaseSetUpForV8.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Adapter/Phpunit/TestListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Adapter/Phpunit/TestListener.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/ClosureWrapper.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/ClosureWrapper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/CompositeExpectation.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/CompositeExpectation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Configuration.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Configuration.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Container.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Container.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/CountValidator/AtLeast.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/CountValidator/AtLeast.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/CountValidator/AtMost.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/CountValidator/AtMost.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/CountValidator/CountValidatorAbstract.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/CountValidator/CountValidatorAbstract.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/CountValidator/Exact.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/CountValidator/Exact.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/CountValidator/Exception.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/CountValidator/Exception.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Exception.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Exception.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Exception/BadMethodCallException.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Exception/BadMethodCallException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Exception/InvalidArgumentException.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Exception/InvalidArgumentException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Exception/InvalidCountException.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Exception/InvalidCountException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Exception/InvalidOrderException.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Exception/InvalidOrderException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Exception/NoMatchingExpectationException.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Exception/NoMatchingExpectationException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Exception/RuntimeException.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Exception/RuntimeException.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Expectation.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Expectation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/ExpectationDirector.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/ExpectationDirector.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/ExpectationInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/ExpectationInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/ExpectsHigherOrderMessage.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/ExpectsHigherOrderMessage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/CachingGenerator.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/CachingGenerator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/DefinedTargetClass.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/DefinedTargetClass.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/Generator.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/Generator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/Method.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/Method.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/MockConfiguration.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/MockConfigurationBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/MockConfigurationBuilder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/MockDefinition.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/MockDefinition.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/MockNameBuilder.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/MockNameBuilder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/Parameter.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/Parameter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/AvoidMethodClashPass.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/AvoidMethodClashPass.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/CallTypeHintPass.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/CallTypeHintPass.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/ClassNamePass.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/ClassNamePass.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/ClassPass.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/ClassPass.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/ConstantsPass.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/ConstantsPass.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/InstanceMockPass.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/InstanceMockPass.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/InterfacePass.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/InterfacePass.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/MagicMethodTypeHintsPass.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/MagicMethodTypeHintsPass.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/MethodDefinitionPass.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/MethodDefinitionPass.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/Pass.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/Pass.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/RemoveBuiltinMethodsThatAreFinalPass.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/RemoveBuiltinMethodsThatAreFinalPass.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/RemoveDestructorPass.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/RemoveDestructorPass.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/RemoveUnserializeForInternalSerializableClassesPass.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/RemoveUnserializeForInternalSerializableClassesPass.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/TraitPass.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulation/Pass/TraitPass.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulationGenerator.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/StringManipulationGenerator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/TargetClassInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/TargetClassInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/UndefinedTargetClass.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Generator/UndefinedTargetClass.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/HigherOrderMessage.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/HigherOrderMessage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Instantiator.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Instantiator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/LegacyMockInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/LegacyMockInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Loader/EvalLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Loader/EvalLoader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Loader/Loader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Loader/Loader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Loader/RequireLoader.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Loader/RequireLoader.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/AndAnyOtherArgs.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/AndAnyOtherArgs.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/Any.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/Any.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/AnyArgs.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/AnyArgs.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/AnyOf.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/AnyOf.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/ArgumentListMatcher.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/ArgumentListMatcher.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/Closure.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/Closure.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/Contains.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/Contains.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/Ducktype.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/Ducktype.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/HasKey.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/HasKey.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/HasValue.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/HasValue.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/MatcherAbstract.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/MatcherAbstract.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/MultiArgumentClosure.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/MultiArgumentClosure.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/MustBe.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/MustBe.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/NoArgs.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/NoArgs.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/Not.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/Not.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/NotAnyOf.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/NotAnyOf.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/PHPUnitConstraint.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/PHPUnitConstraint.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/Pattern.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/Pattern.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/Subset.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/Subset.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/Type.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Matcher/Type.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/MethodCall.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/MethodCall.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Mock.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Mock.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/MockInterface.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/MockInterface.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/ReceivedMethodCalls.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/ReceivedMethodCalls.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Undefined.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/Undefined.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/VerificationDirector.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/VerificationDirector.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/VerificationExpectation.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/Mockery/VerificationExpectation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/library/helpers.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/library/helpers.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/phpunit.xml.dist" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/phpunit.xml.dist" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Bootstrap.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Bootstrap.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Adapter/Phpunit/MockeryPHPUnitIntegrationTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Adapter/Phpunit/MockeryPHPUnitIntegrationTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Adapter/Phpunit/TestListenerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Adapter/Phpunit/TestListenerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/AdhocTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/AdhocTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/AllowsExpectsSyntaxTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/AllowsExpectsSyntaxTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/CallableSpyTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/CallableSpyTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/ContainerTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/ContainerTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/DemeterChainTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/DemeterChainTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/DummyClasses/DemeterChain.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/DummyClasses/DemeterChain.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/DummyClasses/Namespaced.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/DummyClasses/Namespaced.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/ExpectationTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/ExpectationTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Fixtures/ClassWithAllLowerCaseMethod.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Fixtures/ClassWithAllLowerCaseMethod.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Fixtures/ClassWithConstants.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Fixtures/ClassWithConstants.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Fixtures/EmptyTestCaseV5.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Fixtures/EmptyTestCaseV5.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Fixtures/EmptyTestCaseV6.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Fixtures/EmptyTestCaseV6.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Fixtures/EmptyTestCaseV7.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Fixtures/EmptyTestCaseV7.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Fixtures/MethodWithHHVMReturnType.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Fixtures/MethodWithHHVMReturnType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Fixtures/MethodWithIterableTypeHints.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Fixtures/MethodWithIterableTypeHints.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Fixtures/MethodWithNullableReturnType.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Fixtures/MethodWithNullableReturnType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Fixtures/MethodWithNullableTypedParameter.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Fixtures/MethodWithNullableTypedParameter.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Fixtures/MethodWithParametersWithDefaultValues.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Fixtures/MethodWithParametersWithDefaultValues.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Fixtures/MethodWithVoidReturnType.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Fixtures/MethodWithVoidReturnType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Fixtures/SemiReservedWordsAsMethods.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Fixtures/SemiReservedWordsAsMethods.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Generator/DefinedTargetClassTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Generator/DefinedTargetClassTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Generator/MockConfigurationBuilderTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Generator/MockConfigurationBuilderTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Generator/MockConfigurationTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Generator/MockConfigurationTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Generator/StringManipulation/Pass/CallTypeHintPassTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Generator/StringManipulation/Pass/CallTypeHintPassTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Generator/StringManipulation/Pass/ClassNamePassTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Generator/StringManipulation/Pass/ClassNamePassTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Generator/StringManipulation/Pass/ClassPassTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Generator/StringManipulation/Pass/ClassPassTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Generator/StringManipulation/Pass/ConstantsPassTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Generator/StringManipulation/Pass/ConstantsPassTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Generator/StringManipulation/Pass/InstanceMockPassTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Generator/StringManipulation/Pass/InstanceMockPassTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Generator/StringManipulation/Pass/InterfacePassTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Generator/StringManipulation/Pass/InterfacePassTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/GlobalHelpersTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/GlobalHelpersTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/HamcrestExpectationTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/HamcrestExpectationTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Loader/EvalLoaderTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Loader/EvalLoaderTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Loader/LoaderTestCase.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Loader/LoaderTestCase.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Loader/RequireLoaderTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Loader/RequireLoaderTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Matcher/PHPUnitConstraintTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Matcher/PHPUnitConstraintTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Matcher/SubsetTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Matcher/SubsetTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/MockClassWithFinalWakeupTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/MockClassWithFinalWakeupTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/MockClassWithMethodOverloadingTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/MockClassWithMethodOverloadingTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/MockClassWithUnknownTypeHintTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/MockClassWithUnknownTypeHintTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/MockTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/MockTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/MockeryCanMockClassesWithSemiReservedWordsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/MockeryCanMockClassesWithSemiReservedWordsTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/MockeryCanMockMultipleInterfacesWhichOverlapTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/MockeryCanMockMultipleInterfacesWhichOverlapTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/MockingAllLowerCasedMethodsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/MockingAllLowerCasedMethodsTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/MockingClassConstantsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/MockingClassConstantsTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/MockingHHVMMethodsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/MockingHHVMMethodsTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/MockingMethodsWithIterableTypeHintsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/MockingMethodsWithIterableTypeHintsTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/MockingMethodsWithNullableParametersTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/MockingMethodsWithNullableParametersTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/MockingNullableMethodsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/MockingNullableMethodsTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/MockingProtectedMethodsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/MockingProtectedMethodsTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/MockingStaticMethodsCalledObjectStyleTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/MockingStaticMethodsCalledObjectStyleTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/MockingVariadicArgumentsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/MockingVariadicArgumentsTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/MockingVoidMethodsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/MockingVoidMethodsTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/NamedMockTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/NamedMockTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/ProxyMockingTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/ProxyMockingTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/SpyTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/SpyTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Stubs/Animal.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Stubs/Animal.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Stubs/Habitat.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/Stubs/Habitat.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/TraitsTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/TraitsTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/WithFormatterExpectationTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/Mockery/WithFormatterExpectationTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/PHP56/MockingOldStyleConstructorTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/PHP56/MockingOldStyleConstructorTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/PHP70/Generator/StringManipulation/Pass/MagicMethodTypeHintsPassTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/PHP70/Generator/StringManipulation/Pass/MagicMethodTypeHintsPassTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/PHP70/MockingParameterAndReturnTypesTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/PHP70/MockingParameterAndReturnTypesTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/mockery/mockery/tests/PHP72/Php72LanguageFeaturesTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/mockery/mockery/tests/PHP72/Php72LanguageFeaturesTest.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -32,14 +247,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/PatientsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="418" column="41" lean-forward="true" selection-start-line="418" selection-start-column="28" selection-end-line="418" selection-end-column="41" />
-              <folding>
-                <element signature="e#46#65#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="461">
+              <caret line="425" column="32" lean-forward="true" selection-end-line="430" />
             </state>
           </provider>
         </entry>
@@ -47,8 +259,47 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Invoicedetail.php">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-612">
+              <caret line="22" column="145" selection-start-line="22" selection-start-column="145" selection-end-line="22" selection-end-column="145" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/admin/invoicedetails/index.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="357">
-              <caret line="22" column="142" selection-start-line="22" selection-start-column="142" selection-end-line="22" selection-end-column="142" />
+              <caret line="33" column="35" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/partials/sidebar.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="44" column="20" selection-start-line="44" selection-start-column="20" selection-end-line="49" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/InvoicedetailsController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2414">
+              <caret line="29" column="30" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
+              <folding>
+                <element signature="e#46#63#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/web.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="781">
+              <caret line="75" selection-start-line="75" selection-end-line="75" />
             </state>
           </provider>
         </entry>
@@ -87,7 +338,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/DepartmentsController.php" />
         <option value="$PROJECT_DIR$/resources/lang/en/quickadmin.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_04_08_120203_create_departments_tables.php" />
@@ -111,14 +361,12 @@
         <option value="$PROJECT_DIR$/database/migrations/2019_06_21_223506_create_exchanges_table.php" />
         <option value="$PROJECT_DIR$/app/Exchange.php" />
         <option value="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" />
-        <option value="$PROJECT_DIR$/resources/views/partials/sidebar.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/exchanges/edit.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/exchanges/create.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/exchanges/show.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/ExchangesController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/exchanges/index.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/extends/index.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/InvoicedetailsController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_06_21_224254_add_exchange_id_to_invoicedetails.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/invoices/show.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/invoices/print_riels.blade.php" />
@@ -138,6 +386,9 @@
         <option value="$PROJECT_DIR$/app/Invoicedetail.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_10_01_170046_add_soft_deletes_to_invoicedetail_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/PatientsController.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/invoicedetails/index.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/InvoicedetailsController.php" />
+        <option value="$PROJECT_DIR$/resources/views/partials/sidebar.blade.php" />
       </list>
     </option>
   </component>
@@ -246,7 +497,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -335,7 +585,22 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="admin" type="462c0819:PsiDirectoryNode" />
+              <item name="invoicedetails" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cph" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cph" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="admin" type="462c0819:PsiDirectoryNode" />
               <item name="reports" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cph" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cph" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="partials" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cph" type="b2602c69:ProjectViewProjectNode" />
@@ -346,6 +611,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -456,11 +722,12 @@
       <workItem from="1569894451674" duration="18409000" />
       <workItem from="1569935334366" duration="4711000" />
       <workItem from="1569941665286" duration="720000" />
+      <workItem from="1569979182179" duration="7050000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="408284000" />
+    <option name="totallyTimeSpent" value="415334000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -473,8 +740,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3075693" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3107676" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -500,13 +768,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_10_080634_add_creator_to_patients.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="28" column="42" selection-start-line="28" selection-start-column="12" selection-end-line="28" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_10_080809_add_creator_to_invoices.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -638,16 +899,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/InvoicedetailsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="101" column="17" selection-start-line="101" selection-start-column="17" selection-end-line="101" selection-end-column="17" />
-          <folding>
-            <element signature="e#46#63#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/admin/exchanges/edit.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -684,13 +935,6 @@
             <element signature="e#822#860#0#HTML" expanded="true" />
             <element signature="e#1558#1596#0#HTML" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/partials/sidebar.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1700">
-          <caret line="100" column="49" selection-start-line="100" selection-start-column="49" selection-end-line="100" selection-end-column="49" />
         </state>
       </provider>
     </entry>
@@ -750,13 +994,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6307">
           <caret line="437" column="5" selection-start-line="437" selection-start-column="5" selection-end-line="437" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1275">
-          <caret line="75" selection-start-line="75" selection-end-line="75" />
         </state>
       </provider>
     </entry>
@@ -869,18 +1106,46 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/PatientsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="418" column="41" lean-forward="true" selection-start-line="418" selection-start-column="28" selection-end-line="418" selection-end-column="41" />
-          <folding>
-            <element signature="e#46#65#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="461">
+          <caret line="425" column="32" lean-forward="true" selection-end-line="430" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="781">
+          <caret line="75" selection-start-line="75" selection-end-line="75" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Invoicedetail.php">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-612">
+          <caret line="22" column="145" selection-start-line="22" selection-start-column="145" selection-end-line="22" selection-end-column="145" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/invoicedetails/index.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
-          <caret line="22" column="142" selection-start-line="22" selection-start-column="142" selection-end-line="22" selection-end-column="142" />
+          <caret line="33" column="35" selection-start-line="33" selection-start-column="35" selection-end-line="33" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/InvoicedetailsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2414">
+          <caret line="29" column="30" selection-start-line="29" selection-start-column="30" selection-end-line="29" selection-end-column="30" />
+          <folding>
+            <element signature="e#46#63#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/partials/sidebar.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="44" column="20" selection-start-line="44" selection-start-column="20" selection-end-line="49" selection-end-column="25" />
         </state>
       </provider>
     </entry>

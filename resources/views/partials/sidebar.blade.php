@@ -5,7 +5,6 @@
     <section class="sidebar">
         <ul class="sidebar-menu">
 
-             
 
             <li class="{{ $request->segment(1) == 'home' ? 'active' : '' }}">
                 <a href="{{ url('/') }}">
@@ -15,33 +14,41 @@
             </li>
 
             @can('user_management_access')
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-users"></i>
-                    <span>@lang('quickadmin.user-management.title')</span>
-                    <span class="pull-right-container">
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-users"></i>
+                        <span>@lang('quickadmin.user-management.title')</span>
+                        <span class="pull-right-container">
                         <i class="fa fa-angle-left pull-right"></i>
                     </span>
-                </a>
-                <ul class="treeview-menu">
-                    @can('role_access')
-                    <li>
-                        <a href="{{ route('admin.roles.index') }}">
-                            <i class="fa fa-briefcase"></i>
-                            <span>@lang('quickadmin.roles.title')</span>
-                        </a>
-                    </li>@endcan
-                    
-                    @can('user_access')
-                    <li>
-                        <a href="{{ route('admin.users.index') }}">
-                            <i class="fa fa-user"></i>
-                            <span>@lang('quickadmin.users.title')</span>
-                        </a>
-                    </li>@endcan
-                    
-                </ul>
-            </li>@endcan
+                    </a>
+                    <ul class="treeview-menu">
+                        @can('role_access')
+                            <li>
+                                <a href="{{ route('admin.roles.index') }}">
+                                    <i class="fa fa-briefcase"></i>
+                                    <span>@lang('quickadmin.roles.title')</span>
+                                </a>
+                            </li>@endcan
+
+                        @can('user_access')
+                            <li>
+                                <a href="{{ route('admin.users.index') }}">
+                                    <i class="fa fa-user"></i>
+                                    <span>@lang('quickadmin.users.title')</span>
+                                </a>
+                            </li>@endcan
+
+                    </ul>
+                </li>
+
+{{--                <li>--}}
+{{--                    <a href="{{ route('admin.invoicedetails.index') }}">--}}
+{{--                        <i class="fa fa-paper-plane"></i>--}}
+{{--                        <span>Invoicedetail</span>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+            @endcan
 
 
 
@@ -106,16 +113,14 @@
                     </ul>
                 </li>@endcan
 
-            
 
-            
             @can('patient_access')
-            <li>
-                <a href="{{ route('admin.patients.index') }}">
-                    <i class="fa fa-user-o"></i>
-                    <span>@lang('quickadmin.patients.title')</span>
-                </a>
-            </li>@endcan
+                <li>
+                    <a href="{{ route('admin.patients.index') }}">
+                        <i class="fa fa-user-o"></i>
+                        <span>@lang('quickadmin.patients.title')</span>
+                    </a>
+                </li>@endcan
 
             @can('user_management_access')
                 <li>

@@ -30,6 +30,8 @@
                         <th>@lang('quickadmin.invoicedetails.fields.qty')</th>
                         <th>@lang('quickadmin.invoicedetails.fields.unit-price')</th>
                         <th>@lang('quickadmin.invoicedetails.fields.total')</th>
+                        <th>Date</th>
+                        <th>Create Date</th>
                                                 <th>&nbsp;</th>
 
                     </tr>
@@ -48,6 +50,8 @@
                                 <td field-key='qty'>{{ $invoicedetail->qty }}</td>
                                 <td field-key='unit_price'>{{ $invoicedetail->unit_price }}</td>
                                 <td field-key='total'>{{ $invoicedetail->total }}</td>
+                                <td field-key='total'>{{ $invoicedetail->invoice->date ?? '' }}</td>
+                                <td field-key='total'>{{ $invoicedetail->created_at }}</td>
                                                                 <td>
                                     @can('invoicedetail_view')
                                     <a href="{{ route('admin.invoicedetails.show',[$invoicedetail->id]) }}" class="btn btn-xs btn-primary">@lang('quickadmin.qa_view')</a>

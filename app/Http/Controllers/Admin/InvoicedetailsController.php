@@ -26,8 +26,11 @@ class InvoicedetailsController extends Controller
             return abort(401);
         }
 
+        $from = date('2019-08-20');
+        $to = date('2019-09-01');
 
-                $invoicedetails = Invoicedetail::all();
+//        $invoicedetails = Invoicedetail::limit(10)->get();
+        $invoicedetails = Invoicedetail::whereBetween('created_at', [$from, $to])->get();
 
         return view('admin.invoicedetails.index', compact('invoicedetails'));
     }

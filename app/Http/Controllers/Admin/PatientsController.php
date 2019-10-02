@@ -390,13 +390,11 @@ class PatientsController extends Controller
             return abort(401);
         }
         $patient = Patient::onlyTrashed()->findOrFail($id);
-        $invoices = $patient->invoices;
+        $invoices = $patient->invoices()->onlyTrashed()->get();
         foreach ($invoices as $invoice) {
-            $invoicedetails = Invoicedetail::where('invoice_id', '=', $invoice->id)->get();
-            dd($invoicedetails);
-
+            $invoicedetails = Invoicedetail::onlyTrashed()->where('invoice_id', '=', $invoice->id)->get();
             foreach ($invoicedetails as $invoicedetail) {
-                $invoicedetail->withTrashed()->restore();
+                $invoicedetail->restore();
             }
         }
         $patient->invoices()->restore();
@@ -417,9 +415,9 @@ class PatientsController extends Controller
             return abort(401);
         }
         $patient = Patient::onlyTrashed()->findOrFail($id);
-        $invoices = $patient->invoices;
+        $invoices = $patient->invoices()->onlyTrashed()->get();
         foreach ($invoices as $invoice) {
-            $invoicedetails = Invoicedetail::where('invoice_id', '=', $invoice->id)->get();
+            $invoicedetails = Invoicedetail::onlyTrashed()->where('invoice_id', '=', $invoice->id)->get();
             foreach ($invoicedetails as $invoicedetail) {
                 $invoicedetail->forceDelete();
             }
