@@ -13,15 +13,7 @@
 
 
         <div class="panel-body table-responsive">
-            @if (App\Invstate::pluck('id')->count() > count($invstates))
-                <ul>
-                    @foreach($invstates as $instate)
-                        <li>
-                            {{App\Invstate::whereId($instate)->value('state')}}
-                        </li>
-                    @endforeach
-                </ul>
-            @endif
+
 
             <table class="table table-bordered table-striped {{ count($medicines) > 0 ? 'datatable' : '' }} @can('patient_delete') @if ( request('show_deleted') != 1 ) dt-select @endif @endcan">
                 <thead>
@@ -59,6 +51,7 @@
                                 <!-- Sum By Medicine for Qty -->
                                 @php
                                   $invs=$medicine->invoices()->whereBetween('date',[$fromdate,$todate])->whereIn('invstate_id',$invstates)->get();
+                                  //$invs=$invoices;
                                   $tbm=0;
                                   foreach ($invs as $inv){
                                     $qty=$inv->invoicedetail->where('medicine_id',$medicine->id)->sum('qty');

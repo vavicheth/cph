@@ -28,18 +28,23 @@ class ReportsController extends Controller
         $fromdate= date('Y-m-d',strtotime($request->fromdate));
         $todate=date('Y-m-d',strtotime($request->todate));
 
+//        set_time_limit(0);
+
         $invstates=$request->invstate;
         if ($invstates==null){
             $invstates=Invstate::pluck('id');
         }
 
         $medicines=Medicine::get()->sortBy('name');
-        $invoices=Invoice::whereBetween('date',[$fromdate,$todate])->whereIn('invstate_id',$invstates)->get();
+//        $invoices=Invoice::whereBetween('date',[$fromdate,$todate])->whereIn('invstate_id',$invstates)->paginate(2);
+        $invoices=Invoice::whereBetween('date',[$fromdate,$todate])->whereIn('invstate_id',$invstates)->paginate(2);
+//        dd($invoices);
 
         return view('admin.reports.bymedicine', compact('medicines','invoices','fromdate','todate','invstates'));
     }
 
     public function date_report(Request $request){
+        set_time_limit(0);
 
         $fromdate= date('Y-m-d',strtotime($request->fromdate));
         $todate=date('Y-m-d',strtotime($request->todate));
@@ -49,6 +54,7 @@ class ReportsController extends Controller
     }
 
     public function department(Request $request){
+        set_time_limit(0);
 
         $fromdate= date('Y-m-d',strtotime($request->fromdate));
         $todate=date('Y-m-d',strtotime($request->todate));
@@ -59,6 +65,7 @@ class ReportsController extends Controller
     }
 
     public function max_min(Request $request){
+        set_time_limit(0);
 
         $fromdate= date('Y-m-d',strtotime($request->fromdate));
         $todate=date('Y-m-d',strtotime($request->todate));
@@ -85,6 +92,7 @@ class ReportsController extends Controller
     }
 
     public function medicine_history(Request $request){
+        set_time_limit(0);
 
         $medicine=Medicine::findOrFail($request->medicine);
         $fromdate= date('Y-m-d',strtotime($request->fromdate));
@@ -99,6 +107,7 @@ class ReportsController extends Controller
     }
 
     public function department_patient(Request $request){
+        set_time_limit(0);
 
         $fromdate= date('Y-m-d',strtotime($request->fromdate));
         $todate=date('Y-m-d',strtotime($request->todate));
