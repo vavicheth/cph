@@ -46,9 +46,6 @@
                 </thead>
 
                 <tbody>
-
-
-
                 @if (count($invoices) > 0)
                     @foreach ($medicines as $medicine)
                         @if ($medicine->invoices()->whereBetween('date',[$fromdate,$todate])->whereIn('invstate_id',$invstates)->count() > 0)

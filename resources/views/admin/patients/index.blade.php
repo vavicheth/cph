@@ -151,7 +151,7 @@
                     { data: 'action', name: 'action' },
                     // { data: 'invoices.created_at', name: 'invoice_date' }
                 ],
-                order:[6,'desc']
+                // order:[6,'desc']
             });
         });
 

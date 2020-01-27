@@ -28,63 +28,6 @@ class PatientsController extends Controller
         if (!Gate::allows('patient_access')) {
             return abort(401);
         }
-////        if (request('show_deleted') == 1) {
-////            if (! Gate::allows('patient_delete')) {
-////                return abort(401);
-////            }
-////            $patients = Patient::orderBy('id', 'DESC')->where('created_at', '>','2019-06-01' )->onlyTrashed()->get();
-////        } else {
-////            $patients = Patient::orderBy('id', 'DESC')->where('created_at', '>','2019-06-01' )->get();
-////        }
-////        return view('admin.patients.index', compact('patients'));
-
-//        if (request('show_deleted') == 1) {
-//            if (! Gate::allows('patient_delete')) {
-//                return abort(401);
-//            }
-////            dd('test');
-//            $patient = datatables()->of(Patient::select('*')->orderBy('id', 'DESC')->onlyTrashed());
-//        } else {
-//            $patient = datatables()->of(Patient::select('*')->orderBy('id', 'DESC')->with('oranization','user_creator'));
-//        }
-
-//        if (request('show_deleted') == 1) {
-//            if (!Gate::allows('patient_delete')) {
-//                return abort(401);
-//            }
-//            $patients = Patient::
-//                join('organizations', 'patients.oranization_id', '=', 'organizations.id')
-//                ->join('users', 'patients.creator', '=', 'users.id')
-//                ->join('invoices', 'patients.id', '=', 'invoices.patient_id')
-//                ->select([
-//                    'patients.id as id',
-//                    'patients.name as name',
-//                    'patients.gender as gender',
-//                    'patients.age as age',
-//                    'patients.diagnostic as diagnostic',
-//                    'organizations.name_kh as organization',
-//                    'users.name as creator',
-//                    'invoices.date as date'
-//                ]);
-//            $patients = $patients->onlyTrashed();
-//        }else{
-//            $patients = Patient::join('organizations', 'patients.oranization_id', '=', 'organizations.id')
-//                ->join('users', 'patients.creator', '=', 'users.id')
-//                ->join('invoices', 'patients.id', '=', 'invoices.patient_id')
-//                ->select([
-//                    'patients.id as id',
-//                    'patients.name as name',
-//                    'patients.gender as gender',
-//                    'patients.age as age',
-//                    'patients.diagnostic as diagnostic',
-//                    'organizations.name_kh as organization',
-//                    'users.name as creator',
-//                    'invoices.date as date'
-//                ]);
-//            $patients = $patients->onlyTrashed();
-//        }
-
-
         if (request()->ajax()) {
             $patients = Patient::
             join('organizations', 'patients.oranization_id', '=', 'organizations.id')
@@ -97,10 +40,11 @@ class PatientsController extends Controller
                     'patients.age as age',
                     'patients.diagnostic as diagnostic',
                     'patients.creator as creator',
+                    'patients.created_at as created_at',
                     'organizations.name_kh as organization',
                     'users.name as usercreator',
                     'invoices.date as date'
-                ]);
+                ])->orderBy('created_at','desc');
 
             if (request('show_deleted') == 1) {
                 if (!Gate::allows('patient_delete')) {
@@ -138,7 +82,6 @@ class PatientsController extends Controller
                         $duration_right = false;
                     }
 
-
                     if (Auth::user()->role->id == 1 || (Auth::user()->id == $patient->creator && $duration_right == True)) {
 
                         if (Gate::allows('patient_delete')) {
@@ -174,14 +117,10 @@ class PatientsController extends Controller
                 ->filterColumn('usercreator', function ($query, $keyword) {
                     $query->whereRaw("users.name like ?", ["%$keyword%"]);
                 })
-//                ->editColumn('date', function ($patient){
-//                    return $patient->invoice->date->format('Y-m-d');
-//                })
                 ->filterColumn('date', function ($query, $keyword) {
                     $query->whereRaw("DATE_FORMAT(invoices.date,'%Y-%m-%d') like ?", ["%$keyword%"]);
                 })
                 ->make(true);
-
 
         }
         return view('admin.patients.index');
