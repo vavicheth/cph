@@ -11,6 +11,8 @@ use App\Patient;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
+use Yajra\DataTables\DataTables;
 
 class ReportsController extends Controller
 {
@@ -37,37 +39,25 @@ class ReportsController extends Controller
 //        $medicines=Medicine::get()->sortBy('name');
 //        $invoices=Invoice::whereBetween('date',[$fromdate,$todate])->whereIn('invstate_id',$invstates)->get();
 
-//        $show_all = array(
-//            'Day' => array('Monday' => 'A','Tuesday' => 'B','Wednesday' => 'C',),
-//            'Month' => array('Jan' => 'A','Feb' => 'B','Mar' => 'C',),
-//
-//        );
+        $invoices=Invoice::whereBetween('date',[$fromdate,$todate])->whereIn('invstate_id',$invstates)
+            ->with('medicines')
+            ->selectRaw('distinct invoices.date');
 
-        $d=Department::all();
-        dd($d);
 
-        $show_all=array('Medicine'=>[],'Type'=>[]);
-//        $i=Carbon::parse($fromdate)->day;
-//        dd($i);
+        $medicines = Medicine::with('invoices')
+            ->select('medicines.name');
+//        dd($medicines);
 
-        while (strtotime($fromdate) <= strtotime($todate)) {
-            $i="";
-            $i=Carbon::parse($fromdate)->day;
+        return DataTables::of($medicines)
+            ->addColumn('name', function (Medicine $medicine) {
+                return $medicine->invoices->map(function($invoices) {
+                    return $invoices->date;
+                })->implode('<br>');
+            })
 
-            $show_all = $show_all + array($i=>[]);
-            $fromdate = date ("Y-m-d", strtotime("+1 day", strtotime($fromdate)));
-        }
+            ->make(true);
 
-//        $show_all=[];
-//
-//        for ($i=$fromdate;$i<=$todate;date_add($i, date_interval_create_from_date_string('1 days'))) {
-//            $show_all = array(
-//                $i,
-//            );
-//        }
-//
-        dd($show_all);
-//
+
 //
 //        return view('admin.reports.bymedicine', compact('medicines', 'invoices', 'fromdate', 'todate', 'invstates'));
     }
