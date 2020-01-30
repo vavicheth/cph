@@ -39,23 +39,45 @@ class ReportsController extends Controller
 //        $medicines=Medicine::get()->sortBy('name');
 //        $invoices=Invoice::whereBetween('date',[$fromdate,$todate])->whereIn('invstate_id',$invstates)->get();
 
-        $invoices=Invoice::whereBetween('date',[$fromdate,$todate])->whereIn('invstate_id',$invstates)
-            ->with('medicines')
-            ->selectRaw('distinct invoices.date');
+        $invoices = Invoice::whereBetween('date', [$fromdate, $todate])->whereIn('invstate_id', $invstates)->get(['id']);
+//        dd($invoices);
+//        $inde=Invoicedetail::whereIn('invoice_id',$invoices)->get();
+//        dd($inde);
 
 
-        $medicines = Medicine::with('invoices')
-            ->select('medicines.name');
+        $medicines = Medicine::with('invoicedetails')
+            ->select([
+                'medicines.name',
+                'medicines.type as unit',
+                'medicines.price',
+                'medicines.extend_price',
+                ]);
 //        dd($medicines);
 
-        return DataTables::of($medicines)
-            ->addColumn('name', function (Medicine $medicine) {
-                return $medicine->invoices->map(function($invoices) {
-                    return $invoices->date;
-                })->implode('<br>');
-            })
 
-            ->make(true);
+
+
+        $db=DataTables::of($medicines);
+
+        while (strtotime($fromdate) <= strtotime($todate)) {
+            $i=Carbon::parse($fromdate)->day;
+
+            $db=$db->addColumn($i,function ($medicine){
+                return $medicine->invoicedetails->count();
+            });
+            $fromdate = date ("Y-m-d", strtotime("+1 day", strtotime($fromdate)));
+        }
+
+
+        return $db->make(true);
+
+
+//            ->addColumn('date', function (Medicine $medicine) {
+//                return $medicine->invoices->map(function ($invoices) {
+//                    return $invoices->date;
+//                })->implode('<br>');
+//            })
+
 
 
 //
